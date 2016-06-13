@@ -1,0 +1,18 @@
+<h2 class='User_Header'><%=@current_user.username%> Setting <h2>
+<script>
+var contextvalue = "onboard";
+var user = {
+    username_or_email: '<%=ENV['username']%>',
+    user_relationship: 'visa',
+    context: contextvalue
+  }
+
+  $.ajax({
+    type: 'post',
+    url: 'generatetoken',
+    dataType: 'json',
+    data: user
+  });
+</script>
+<pre>  <%= ENV['context']  %></pre>
+<pre>  <%= ENV['token']  %></pre>
